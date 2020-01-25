@@ -12,18 +12,19 @@ void instagram_square();
 
 int main(int argc, char *argv[]) {
 
-    int choice = strtol(argv[1], NULL, 10);
-
     // Command arguments determine the option
-    if (choice == 1 && argc == 2) {
-        remove_red();
-    } else if (choice == 2 && argc == 2) {
-        convert_to_black_and_white();
-    } else if (choice == 3 && argc == 2) {
-        instagram_square();
+    if (argc == 2) {
+        int choice = strtol(argv[1], NULL, 10);
+        if (choice == 1) {
+            remove_red();
+        } else if (choice == 2) {
+            convert_to_black_and_white();
+        } else if (choice == 3) {
+            instagram_square();
+        }
     } else {
         printf("Error: Expecting one command-line argument, which needs to be either 1, 2, or 3.");
+        return -1;
     }
-     
     return 0;
 }
